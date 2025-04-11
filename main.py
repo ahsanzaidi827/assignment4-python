@@ -1,3 +1,7 @@
+#canva erase
+#the work of step 02 list 
+
+
 import pygame
 
 pygame.init()
