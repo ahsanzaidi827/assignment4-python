@@ -1,24 +1,22 @@
-# BMI CALCULATOR
+#countdown
 
-import streamlit as st
+import time # for time
 
-#title
+def countdown(seconds):
+    mins = seconds // 60
+    seconds = seconds % 60
+    print(f'{mins:02d}:{seconds:02d}', end="\r")
+    time.sleep(1)
+    seconds -= 1
 
-st.title("BMI CALCULATOR")
+    #conditions
 
-weight = st.number_input("Enter your weight in kg. ")
-height = st.number_input("Enter your height in cm. ")
+    if seconds >=0:
+        countdown(seconds)
+    else:
+        print("Time's up!")
 
-final_height = height ** 2
-if st.button("Calculate through BMI Calculator"):
-    bmi = weight / final_height
-    st.success(f"Your BMI is: {bmi:.2f}")
+if __name__ == "__main__":
+    countdown(10)
 
-    if bmi <18.5:
-        st.warning("You are underweight")
-    elif 18.5 <= bmi < 24.9:
-        st.info("You have a normal weight")
-    elif 25 <= bmi < 29.9:
-        st.warning("You are overweight")
-  
-   
+
